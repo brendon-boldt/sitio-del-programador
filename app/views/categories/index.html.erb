@@ -1,5 +1,4 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="category.css">
 </head>
 
 <table>
@@ -9,7 +8,7 @@
 
   <% @categories.each do |category| %>
     <tr>
-      <td><%= link_to category.name, category_path(category) %></td>
+      <td><%= link_to category.name, category_path(name: category.name) %></td>
     </tr>
   <% end %>
 

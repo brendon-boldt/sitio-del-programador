@@ -20,15 +20,19 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    #@category = Category.find(params[:id])
-    @category = Category.where('lower(name) = ?', params[:name].downcase).first
+    #@category = Category.where('lower(name) = ?', params[:name].downcase).first
+    @category = get_category_by_name(params[:name])
     if @category.nil?
       redirect_to '/categories'
     end
   end
 
+  def edit
+    @category = get_category_by_name(params[:name])
+  end
+
   def update
-    @category = Category.find(params[:id])
+    @category = get_category_by_name(params[:name])
     if @category.update(category_params)
       redirect_to @category
     else
@@ -37,7 +41,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = get_category_by_name(params[:name])
     @category.destroy
     redirect_to categories_path
   end
@@ -47,4 +51,7 @@ class CategoriesController < ApplicationController
       params.require(:category).permit(:name, :text)
     end
 
+    def get_category_by_name name
+      Category.where('lower(name) = ?', name.downcase).first
+    end
 end
