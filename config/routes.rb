@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # Example of regular route:
-  get ':controller' => 'categories#index', as: :categories
-  get ':controller/:name' => 'categories#show', as: :category
-  get ':controller/:name/edit' => 'categories#edit', as: :edit_category
-  delete ':controller/:name' => 'categories#destroy'
+  resources :categories, only: [:index, :new, :create, :delete]
+  get ':name' => 'categories#show', as: :category
+  get ':name/edit' => 'categories#edit', as: :edit_category
+  match ':name' => 'categories#update', via: [:put, :patch]
+  delete ':name' => 'categories#destroy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

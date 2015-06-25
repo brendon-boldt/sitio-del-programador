@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = get_category_by_name(params[:name])
+    @category = get_category_by_name(params[:category][:name])
     if @category.update(category_params)
       redirect_to @category
     else
