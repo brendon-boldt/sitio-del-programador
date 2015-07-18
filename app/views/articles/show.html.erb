@@ -1,0 +1,9 @@
+<h1><%= @article.name %></h1>
+
+<p>
+<%= @article.text %>
+</p>
+
+<p>
+<%= link_to "Back to #{params[:category_name]}", category_path(params[:category_name]) %>
+</p>

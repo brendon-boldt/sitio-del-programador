@@ -1,0 +1,6 @@
+<h1><%= @article.name %></h1>
+
+<%= render 'form' %>
+
+<p><%= link_to 'Back', controller: 'articles', action: 'show' %></p>
+<p><%= link_to 'Delete', article_path(name: @article.name), method: :delete, data: {confirm: "Are you sure you want to delete the article #{@article.name}" } %></p>

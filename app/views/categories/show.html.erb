@@ -3,3 +3,12 @@
 <p>
   <%= @category.text %>
 </p>
+
+<p>
+  <% @category.articles.each do |article| %>
+    <tr>
+      <td><%= link_to article.name, article_path(name: article.name, category_name: @category.name) %></td>
+    </tr>
+  <% end %>
+</p>
+

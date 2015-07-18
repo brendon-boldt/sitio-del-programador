@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Website</title>
+  <title>Sitio del Programador</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="banner">
+    <div id="bannerText">
+      <br>
+      <span id="bannerTitle" ><a href="/">Brendon Boldt</a></span>
+      <br><br>
+      <% first = true %>
+      <% Category.all.each do |category| %>
+        <%=  if first
+              first = false
+              ''
+             else
+              ' | '
+             end %>
+        <%= link_to category.name, category_path(category.name) %>
+      <% end %>
+    </div>
+  </div>
 
-<%= yield %>
+  <div id="mainBox">
+    <%= yield %>
+  </div>
+
+  <div id="bottomBanner">
+    <br><br>
+    <a href="https://github.com/brendon-boldt">GitHub</a> | 
+    <a href="https://linkedin.com/in/brendonjboldt">LinkedIn</a> | 
+    <a href="mailto:brendon_boldt@yahoo.com">Email</a>
+    <br><br>
+    Powered by Ruby on Rails and Inspiration
+  </div>
 
 </body>
 </html>

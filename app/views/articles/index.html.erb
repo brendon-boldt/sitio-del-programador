@@ -1,0 +1,15 @@
+<head>
+</head>
+
+<table>
+  <tr>
+    <th>Articles</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= link_to article.name, article_path(name: article.name) %></td>
+    </tr>
+  <% end %>
+
+</table>
