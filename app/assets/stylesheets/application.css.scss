@@ -18,7 +18,7 @@ body {
   padding: 0 15 15 15;
   margin: 0;
   background-color: #eee;
-  font-family: helvetica;
+  font-family: nimbus roman no9 l;
 }
 
 h1, h2, h3 {
@@ -32,6 +32,10 @@ h1, h2, h3 {
 }
 
 #banner {
+  box-shadow: 0 -35px 30px -10px #eee inset;
+  text-shadow:  0 0 10px black,
+                0 0 10px black,
+                0 0 10px black ;
   height : 100px;
   width : 100%;
   top : 0px;
@@ -40,10 +44,15 @@ h1, h2, h3 {
   font-variant: small-caps;
   background-image: image-url('f2.jpg');
   background-position: 20% 20%;
+  display: table;
 }
 
 #bottomBanner {
-  position: absolute;
+  text-shadow:  0 0 10px black,
+                0 0 10px black,
+                0 0 10px black ;
+  box-shadow: 0 25px 20px -10px #eee inset;
+  position: relative;
   height : 100px;
   color : #fff;
   width : 100%;
@@ -53,19 +62,34 @@ h1, h2, h3 {
   font-variant: small-caps;
   background-image: image-url('f2.jpg');
   background-position: 100% 30%;
+  font-size: 14pt;
 }
 
 #bannerTitle {
-  font-size: 18pt;
+  display: table-cell;
+  text-align: left;
+  padding-left: 20px;
+  vertical-align: bottom;
+  position: relative;
+  font-size: 32pt;
   font-weight: bold;
 }
 
 #bannerText {
+  display: table-cell;
+  text-align: right;
+  padding-right: 20px;
+  vertical-align: bottom;
+  font-size: 24pt;
   color: white;
 }
 
 #mainBox {
-  padding : 15px 15em 45px 15em;
-  //margin: 0 10em 0 10em;
+  padding : 15px 15em 20px 15em;
   text-align: justify;
+  color: #444;
+}
+
+#mainBox h1, h2, h3 {
+  color: black;
 }

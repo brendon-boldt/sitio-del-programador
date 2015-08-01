@@ -1,4 +1,4 @@
-class UpdateAboutMe < ActiveRecord::Migration
+class UpdateContent < ActiveRecord::Migration
   def change
     #category = Category.find_by(name: 'About Me')
     #category.text = File.read('About Me.text.txt')

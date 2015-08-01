@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+  alert('ran');
+  if ($(document).height > $('#bottomBanner').offset().top) {
+    $('#bottomBanner').css('position: absolute; bottom : 0')
+  }
+})

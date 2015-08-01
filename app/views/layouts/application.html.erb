@@ -8,10 +8,8 @@
 </head>
 <body>
   <div id="banner">
+    <span id="bannerTitle" ><a href="/">Brendon J. Boldt</a></span>
     <div id="bannerText">
-      <br>
-      <span id="bannerTitle" ><a href="/">Brendon Boldt</a></span>
-      <br><br>
       <% first = true %>
       <% Category.all.each do |category| %>
         <%=  if first
@@ -30,7 +28,7 @@
   </div>
 
   <div id="bottomBanner">
-    <br><br>
+    <br>
     <a href="https://github.com/brendon-boldt">GitHub</a> | 
     <a href="https://linkedin.com/in/brendonjboldt">LinkedIn</a> | 
     <a href="mailto:brendon_boldt@yahoo.com">Email</a>
