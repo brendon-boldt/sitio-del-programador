@@ -5,10 +5,28 @@
 </p>
 
 <p>
+  <% alignLeft = false %>
   <% @category.articles.each do |article| %>
-    <tr>
-      <td><%= link_to article.name, article_path(name: article.name, category_name: @category.name) %></td>
-    </tr>
+    <% alignLeft = !alignLeft
+    if alignLeft %>
+        <div class='articleTile' style='text-align: left'>
+          <div class='tileIcon' style='float: right'>
+            <%= image_tag('icon.' + article.name) %>
+          </div>
+   <% else %>
+        <div class='articleTile' style='text-align: right'>
+          <div class='tileIcon' style='float: left'>
+            <%= image_tag('icons/'+article.name, :class => 'tileIcon') %>
+          </div>
+    <% end %>
+    <div class='tileTitle'><%= article.name %></div>
+    <!--<%= link_to article.name, article_path(name: article.name, category_name: @category.name) %>-->
+    <a href=<%=article_path(name: article.name, category_name: @category.name)%>><span style='position:absolute;top:0; left:0; height:100%;width:100%;'></span></a>
+    <div class='tileAbstract'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ullamcorper dolor, a fermentum ipsum.
+      </div>
+    </div>
   <% end %>
 </p>
 
+<div id="backgroundText"><%= @category.name %></div>

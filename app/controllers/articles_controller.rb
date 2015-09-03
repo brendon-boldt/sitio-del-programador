@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.name = params[:name]
+    if !@article.name.nil?
+      create
+    end
   end
 
   def index
@@ -14,6 +18,8 @@ class ArticlesController < ApplicationController
     @category = get_category params[:category_name]
     #@article = Article.new(article_params)
     @article = @category.articles.create(article_params)
+
+    @article.save
     if @article.save
       redirect_to article_path(name: @article.name)
     else
@@ -50,7 +56,8 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:name, :text)
+      #params.require(:article).permit(:name, :text)
+      params.require(:article).permit(:name)
     end
 
     def get_article name
