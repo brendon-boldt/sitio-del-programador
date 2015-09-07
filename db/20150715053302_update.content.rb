@@ -5,6 +5,13 @@ class UpdateContent < ActiveRecord::Migration
     #category.save
     directory = 'app/assets/text/'
     dirs = Dir.entries(directory)#.map{|f| f.split('.')}
+
+    Article.all.each do |article|
+      if !dirs.include? ('article.' + article.name)
+        article.destroy
+      end
+    end
+
     dirs.each do |dir|
       file = dir.split('.')
       if file[0] == 'category'
@@ -18,8 +25,8 @@ class UpdateContent < ActiveRecord::Migration
           category.save
         end
       end
-      if file[0] == 'article' and false
-        article = Aritcle.find_by(name: file[1])
+      if file[0] == 'article'
+        article = Article.find_by(name: file[1])
         attributes = Dir.entries(directory + dir).reject{|entry| entry =~ /^\.{1,2}$/}
         if !article.nil?
           attributes.each do |attr|
@@ -27,6 +34,7 @@ class UpdateContent < ActiveRecord::Migration
           end
           article.save
         end
+
 =begin
         article = Article.find_by(name: file[1])
         if !article.nil?
